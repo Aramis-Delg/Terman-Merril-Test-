@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>        
     </form>
     <p class="text-center"><a href="<?php echo base_url()?>index.php/Registro/">Registrarse</a></p>
+    <?php echo "<h6>".$errorArch."</h6><br>"; ?>
 </div>
 
 </body>

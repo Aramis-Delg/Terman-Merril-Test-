@@ -15,8 +15,9 @@ class Login extends CI_Controller {
 		//if($this->session->userdata('usuario')){
 		//	redirect('welcome');
 		//}
+		$data['errorArch'] = '';
 		$this->load->library('encryption');
-		$this->load->view('login');
+		$this->load->view('login',$data);
 		if($this->session->userdata('s_nombre')){
 			if ($this->session->userdata('s_tipo')=='usuario') {
 				redirect('Comenzar');
@@ -77,6 +78,7 @@ class Login extends CI_Controller {
 			if ($res == 2) {
 				redirect('Administrador');
 			}else{
+				$data['errorArch'] = 'Usted ya está registrado';
 				$this->load->view('login');
 			}
 			
