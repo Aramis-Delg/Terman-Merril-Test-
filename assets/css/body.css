@@ -1,0 +1,25 @@
+body {
+    position: relative;
+    width: 100%;
+    display: block;
+  }
+
+  body > *  {
+    margin: auto;
+    width: 500px;
+    border: 1px solid steelblue;
+    display: block;
+    overflow: auto;
+  }
+
+  body > script {
+    display: none
+  }
+   .form-group{
+    align-content: center;
+   }
+   #mostrarmodal{
+     height: 80% !important;
+   }
+
+   
