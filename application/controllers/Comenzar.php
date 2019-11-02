@@ -13,7 +13,7 @@ class Comenzar extends CI_Controller {
 		if($this->session->userdata('s_nombre')){
 			$this->load->view('comenzar');
 		} else {
-			$this->load->view('login');
+			redirect('login');
 		}
 	}
 

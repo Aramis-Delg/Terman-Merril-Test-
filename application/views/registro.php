@@ -167,6 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="form-group">
             <button type="submit" id="guardar" class="btn btn-primary btn-block">Registrarse</button>
           </div>
+        <h5><a style="color:black;" href="<?php echo base_url()?>">Iniciar Sesión</a></h5>
         </form>
       </div>
     </body>

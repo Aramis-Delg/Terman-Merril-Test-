@@ -10,8 +10,22 @@ class Registro extends CI_Controller {
 
 	public function index(){
 		$data['errorArch'] = '';
-		$data['verVacantes'] = $this->registro_model->verVacantes();
-		$this->load->view('registro',$data); 
+
+		if($this->session->userdata('s_nombre')){
+			if ($this->session->userdata('s_tipo')=='usuario') {
+				redirect('Comenzar');
+				
+			}
+
+			if ($this->session->userdata('s_tipo')=='administrador') {
+				redirect('Administrador');
+				
+			}
+		}else{
+			$data['verVacantes'] = $this->registro_model->verVacantes();
+			$this->load->view('registro',$data); 
+		}
+
 
 	}
 	

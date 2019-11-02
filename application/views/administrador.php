@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <div class="col-sm-8"><h2>Bienvenido <b><?php echo $this->session->userdata('s_nombre');?></b></h2></div>
                     <div class="col-sm-4">
-                        <form action="<?php echo base_url()?>index.php/Administrador/cerrar_sesion">
+                        <form action="<?php echo base_url()?>Administrador/cerrar_sesion">
                         <button type="submit" class="btn btn-info ">Cerrar Sesión</button>
                         </form>
                     </div>
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      foreach ($Usuario as $row2) {
                       echo "<tr>";
                         echo "<td>".$row2->nombre." ".$row2->apellidos."</td>";
-                        echo "<td><a href='".$url."uploads/CV".$row2->curp.".pdf'>Curriculum</a></td>";
+                        echo "<td><a target='blank' href='".$url."uploads/CV".$row2->curp.".pdf'>Curriculum</a></td>";
                         echo "<td>".$row2->telefono."</td>";
                         echo "<td><button type='button' class='btn btn-info'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
                         echo "<td>".$row2->estatus."</td>";

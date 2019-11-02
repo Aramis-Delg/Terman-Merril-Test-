@@ -39,8 +39,8 @@ class Login_model extends CI_Model{
 		$this->db->where('correo',$usuario);
 		$this->db->where('contrasena',$password);
 		$resultado = $this->db->get('usuarios');
+		$r=$resultado->row();
 		if($resultado->num_rows()>0){
-			$r=$resultado->row();
 
 			$s_usuario = array(
 				's_id' => $r->id,
@@ -63,16 +63,15 @@ class Login_model extends CI_Model{
 		}else{
 			$this->db->where('correo',$usuario);
 			$this->db->where('contrasena',$password);
-			$resultado = $this->db->get('administrador');
-			if($resultado->num_rows()>0){
+			$resultado2 = $this->db->get('administrador');
 				if ($resultado->num_rows()>0) {
-					$r=$resultado->row();
+					$r2=$resultado2->row();
 
 					$s_usuario = array(
-						's_correo' => $r->correo,
-						's_contrasena' => $r->contrasena,
-						's_nombre' => $r->nombre,
-						's_id'=> $r->id,
+						's_correo' => $r2->correo,
+						's_contrasena' => $r2->contrasena,
+						's_nombre' => $r2->nombre,
+						's_id'=> $r2->id,
 						's_tipo' => 'administrador'
 					);
 
@@ -82,7 +81,6 @@ class Login_model extends CI_Model{
 				else{
 					return 0;
 				}
-			}
 
 		}
 	}

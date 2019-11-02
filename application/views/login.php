@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
 <div class="login-form" width= 340px >
-    <form action="<?php echo base_url()?>index.php/Login/ingresar" method="post">
+    <form action="<?php echo base_url()?>Login/ingresar" method="post">
         <h2 class="text-center">Log in</h2>       
         <div class="form-group">
             <input type="text" name="usuario" class="form-control" placeholder="Nombre de usuario" required="required">
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         </div>        
     </form>
-    <p class="text-center"><a href="<?php echo base_url()?>index.php/Registro/">Registrarse</a></p>
+    <p class="text-center"><a href="<?php echo base_url()?>Registro/">Registrarse</a></p>
     <?php echo "<h6>".$errorArch."</h6><br>"; ?>
 </div>
 

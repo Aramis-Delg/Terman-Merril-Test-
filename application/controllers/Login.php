@@ -12,12 +12,8 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
-		//if($this->session->userdata('usuario')){
-		//	redirect('welcome');
-		//}
 		$data['errorArch'] = '';
-		$this->load->library('encryption');
-		$this->load->view('login',$data);
+		
 		if($this->session->userdata('s_nombre')){
 			if ($this->session->userdata('s_tipo')=='usuario') {
 				redirect('Comenzar');
@@ -28,6 +24,8 @@ class Login extends CI_Controller {
 				redirect('Administrador');
 				
 			}
+		}else{
+			$this->load->view('login',$data);
 		}
 
 	}
@@ -64,27 +62,29 @@ class Login extends CI_Controller {
 			}
 
 			
-		}
-
-		$usuario = $this->input->post('usuario');
-		$pass = $this->input->post('contrasena');
-		$this->load->model('login_model');
-		$res= $this->login_model->ingresar($usuario,$pass);
-
-		if ($res == 1) {
-
-			$this->load->view('comenzar');
 		}else{
-			if ($res == 2) {
-				redirect('Administrador');
+			$usuario = $this->input->post('usuario');
+			$pass = $this->input->post('contrasena');
+			$this->load->model('login_model');
+			$res= $this->login_model->ingresar($usuario,$pass);
+
+			if ($res == 1) {
+
+				redirect('comenzar');
 			}else{
-				$data['errorArch'] = 'Usted ya está registrado';
-				$this->load->view('login');
+				if ($res == 2) {
+					redirect('Administrador');
+				}else{
+					if($res == 3){
+						$this->load->view('aviso');
+					}else{
+					$data['errorArch'] = 'Datos incorrectos. Vuelva a intentarlo.';
+					$this->load->view('login',$data);
+					}
+				}
+
 			}
-			
-		}
-		if($res == 3){
-			$this->load->view('aviso');
+
 		}
 
 
@@ -94,7 +94,7 @@ class Login extends CI_Controller {
 
 	public function cerrar_sesion(){
 		$this->session->sess_destroy();
-		$this->load->view('login');
+		redirect('login');
 	}
 
 
