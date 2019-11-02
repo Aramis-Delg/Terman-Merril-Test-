@@ -77,7 +77,7 @@ function myFunction2() {
           if ($row2->estatus!='EN PROCESO') {
             echo "<tr>";
             echo "<td>".$row2->nombre." ".$row2->apellidos."</td>";
-            echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>CV <i class='material-icons file_download'>&#xe2c4;</a></td>";
+            echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>Descargar \n <i class='material-icons file_download'>&#xe2c4;</a></td>";
             echo "<td>".$row2->telefono."</td>";
             echo "<td><button type='button' class='btn btn-info'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
             echo "<td>".$row2->estatus."</td>";
@@ -88,7 +88,7 @@ function myFunction2() {
           } else{
             echo "<tr>";
             echo "<td>".$row2->nombre." ".$row2->apellidos."</td>";
-            echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>CV <i class='material-icons file_download'>&#xe2c4;</a></td>";
+            echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>Descargar \n <i class='material-icons file_download'>&#xe2c4;</a></td>";
             echo "<td>".$row2->telefono."</td>";
             echo "<td><button type='button' class='btn btn-info'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
             echo "<td>".$row2->estatus."</td>";
