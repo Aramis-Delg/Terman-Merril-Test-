@@ -64,7 +64,7 @@ class Login_model extends CI_Model{
 			$this->db->where('correo',$usuario);
 			$this->db->where('contrasena',$password);
 			$resultado2 = $this->db->get('administrador');
-				if ($resultado->num_rows()>0) {
+				if ($resultado2->num_rows()>0) {
 					$r2=$resultado2->row();
 
 					$s_usuario = array(

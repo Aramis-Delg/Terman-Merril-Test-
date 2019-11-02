@@ -30,24 +30,6 @@ class Login extends CI_Controller {
 
 	}
 
-/*	 public function login()
-	{
-		if(isset($_POST['contrasena'])){
-		$this->load->model('login_model');
-		if($this->login_model->login($_POST['usuario'],md5($_POST['contrasena']))){
-
-			$data['nombre'] = $this->session->userdata('nombre');
-			//$data['usuario'] = $this->session->userdata('usuario');
-
-
-			$this->load->view('comenzar',$data);
-		}else{
-			redirect('login#bad-password');
-		}
-		
-		}
-
-	}*/
 
 	public function ingresar(){
 
