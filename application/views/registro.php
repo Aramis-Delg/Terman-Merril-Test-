@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <p class="hint-text">Crea tu cuenta.</p>
       <?php echo "<h6 id='errorstandard' name='errorstandard'>".$errorArch."</h6><br>"; ?>
       <div class="form-group">
-        <input id="curp1" oninput="validarInput(this)" type="text" class="form-control" name="curp" placeholder="CURP">
+        <input id="curp1" oninput="validarInput(this)" maxlength="18" type="text" class="form-control" name="curp" placeholder="CURP">
         <button id="enviar" name="enviar" onclick="ObtenerCurp()" type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#campos" aria-expanded="false" aria-controls="collapseExample" disabled>Consultar CURP</button>
       </div>
 
