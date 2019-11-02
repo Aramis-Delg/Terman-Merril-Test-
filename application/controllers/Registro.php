@@ -11,7 +11,7 @@ class Registro extends CI_Controller {
 	public function index(){
 		$data['errorArch'] = '';
 		$data['verVacantes'] = $this->registro_model->verVacantes();
-		$this->load->view('registro',$data);
+		$this->load->view('registro',$data); 
 
 	}
 	

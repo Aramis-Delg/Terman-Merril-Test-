@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     .form-control{
       height: 40px;
       box-shadow: none;
-  
+
     }
     .form-control:focus{
       border-color: #5cb85c;
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <form action="<?php echo base_url()?>index.php/Registro/SubirArchivo" method="post" enctype="multipart/form-data">
       <h2>Registro</h2>
       <p class="hint-text">Crea tu cuenta.</p>
-      <?php echo "<h6>".$errorArch."</h6><br>"; ?>
+      <?php echo "<h6 id='errorstandard' name='errorstandard'>".$errorArch."</h6><br>"; ?>
       <div class="form-group">
         <input id="curp1" oninput="validarInput(this)" type="text" class="form-control" name="curp" placeholder="CURP">
         <button id="enviar" name="enviar" onclick="ObtenerCurp()" type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#campos" aria-expanded="false" aria-controls="collapseExample" disabled>Consultar CURP</button>
@@ -130,35 +130,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="form-group">
         <div class="row">
-          <div class="col-xs-6"><input type="text" class="form-control" name="telefono" placeholder="telefono" required></div>
+          <div class="col-xs-6"><input type="text" class="form-control" name="telefono" minlength="10" maxlength="10" placeholder="telefono" required></div>
           <div class="col-xs-6">
 
-            <input type="file" name="archivo" id="nombreArchivo" style="display: none"  accept="application/pdf" required>
-            <button type="button" onclick="document.getElementById('nombreArchivo').click();" class="btn btn-primary btn-block">Adjuntar IFE</button></div>
+            <input type="file" name="archivo" id="nombreArchivo" style="display: none" onchange="CambiarINE()" accept="application/pdf" required>
+            <button type="button" id="INE" onclick="document.getElementById('nombreArchivo').click();" class="btn btn-primary btn-block">Adjuntar INE</button></div>
           </div>          
         </div>
         
         <div class="form-group">
           <div class="row">
             <div class="col-xs-6">
-              <input type="file" name="archivo2" id="nombreArchivo2" style="display: none"  accept="application/pdf" required>
-              <button type="button" onclick="document.getElementById('nombreArchivo2').click();" class="btn btn-primary btn-block">Adjuntar CV</button></div>
+              <input type="file" name="archivo2" id="nombreArchivo2" style="display: none" onchange="CambiarCV()" accept="application/pdf" required>
+              <button type="button" id="CV" onclick="document.getElementById('nombreArchivo2').click();" class="btn btn-primary btn-block">Adjuntar CV</button></div>
               <div class="col-xs-6"><div class="dropdown">
-                
-                  <div class="form-group">
-              <label for="vacantes">Vacantes</label>
-              <select id="vacantes" class="form-control" name="vacante">
 
-                <?php foreach ($verVacantes as $value){  
-                  
-                  echo "<option name='vacante' value='".$value->id."'>".$value->vacante."</option>";
+                <div class="form-group">
+                  <label for="vacantes">Vacantes</label>
+                  <select id="vacantes" class="form-control" name="vacante">
 
-                } ?>    
-              </select>
+                    <?php foreach ($verVacantes as $value){  
 
-                        </div>
+                      echo "<option name='vacante' value='".$value->id."'>".$value->vacante."</option>";
 
-               
+                    } ?>    
+                  </select>
+
+                </div>
+
+
               </div></div>
             </div>          
           </div>       
@@ -172,6 +172,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </body>
     </html> 
     <script type="text/javascript">
+      $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            alert('El archivo "' + fileName +  '" ha sido cargado.\nSi deseas cambiar el archivo solo da clic sobre el botón nuevamente.');
+        });
+    });
+
+      function CambiarINE(){  
+        if( document.getElementById("nombreArchivo").files.length == 0 ){
+        }else{
+          document.getElementById("INE").innerHTML="INE Seleccionado";
+        }
+      }
+
+      function CambiarCV(){  
+        if( document.getElementById("nombreArchivo2").files.length == 0 ){
+        }else{
+          document.getElementById("CV").innerHTML="CV Seleccionado";
+        }
+      }
+
       $("#guardar").attr("disabled", true);  
       function get_datos_curp(_curp){
        $("#area_curp").html(datos)
@@ -222,6 +243,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 // Comment or remove the below change event code if you want send AJAX request from external script file
                 function ObtenerCurp(){
                   var curp = $('#curp1').val();
+                  $('.collapse').collapse("hide");
+                  $('#errorstandard').text('');
                   $.ajax({
                     url:'<?=base_url()?>index.php/Registro/RevisarCurp',
                     method: 'post',
@@ -244,17 +267,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 $('#genero').val(genero);
                                 $('#estado').val(estado);
                                 $('#edad').val(edad);
-                                $("#guardar").attr("disabled", false);  
+                                $("#guardar").attr("disabled", false);
+                                $('.collapse').collapse("show");
                                 if (response == 'no hay nada'){
-                                  $('#nombre').val('Intente nuevamente');
+                                  $('#errorstandard').text('Intente nuevamente');
+                                  $('.collapse').collapse("hide");
                                   console.log('No pasa datos');
                                 }
                                 if (response == 'datos incorrectos'){
-                                  $('#nombre').val('Verifica tu CURP e intenta nuevamente');
+                                  $('#errorstandard').text('Verifica tu CURP e intenta nuevamente');
+                                  $('.collapse').collapse("hide");
                                   console.log('No pasa datos');
                                 }
                               }else{
                                $('#error1').attr("display", "block"); 
+                               $('.collapse').collapse("hide");
                                console.log('No pasa datos');
                              }
 
