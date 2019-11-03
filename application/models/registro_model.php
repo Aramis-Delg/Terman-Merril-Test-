@@ -84,7 +84,7 @@ class registro_model extends CI_Model{
 		return $query->result();
 	}
 
-	public function insertarUsuario($nombre,$apellido,$edad,$sexo,$estado,$correo,$telefono,$curp,$curriculum,$ine,$contrasena,$vacante_id,$test){
+	public function insertarUsuario($nombre,$apellido,$edad,$sexo,$estado,$correo,$telefono,$curp,$curriculum,$ine,$contrasena,$vacante_id,$test,$verificador){
 
 
 
@@ -101,7 +101,8 @@ class registro_model extends CI_Model{
 			'ine' => $ine,
 			'contrasena' => $contrasena,
 			'vacante_id' => $vacante_id,
-			'test' => 0
+			'test' => 0,
+			'verificador' => $verificador
 			 );
 
 		$this->db->insert ('usuarios', $arrayDatos);
@@ -110,7 +111,9 @@ class registro_model extends CI_Model{
 						's_telefono' => $telefono,
 						's_nombre' => $nombre,
 						's_id'=> $this->db->insert_id(),
-						's_tipo' => 'usuario'
+						's_tipo' => 'usuario',
+						's_validado' => 0,
+						's_test' => 0
 					);
 
 		$this->session->set_userdata($s_usuario);

@@ -49,7 +49,8 @@ class Login_model extends CI_Model{
 				's_contrasena' => $r->contrasena,
 				's_telefono' => $r->telefono,
 				's_test' => $r->test,
-				's_tipo' => 'usuario'
+				's_tipo' => 'usuario',
+				's_validado' => $r->validado
 			);
 
 			$this->session->set_userdata($s_usuario);
@@ -58,29 +59,29 @@ class Login_model extends CI_Model{
 				
 			}else{
 
-			return 1;
+				return 1;
 			}
 		}else{
 			$this->db->where('correo',$usuario);
 			$this->db->where('contrasena',$password);
 			$resultado2 = $this->db->get('administrador');
-				if ($resultado2->num_rows()>0) {
-					$r2=$resultado2->row();
+			if ($resultado2->num_rows()>0) {
+				$r2=$resultado2->row();
 
-					$s_usuario = array(
-						's_correo' => $r2->correo,
-						's_contrasena' => $r2->contrasena,
-						's_nombre' => $r2->nombre,
-						's_id'=> $r2->id,
-						's_tipo' => 'administrador'
-					);
+				$s_usuario = array(
+					's_correo' => $r2->correo,
+					's_contrasena' => $r2->contrasena,
+					's_nombre' => $r2->nombre,
+					's_id'=> $r2->id,
+					's_tipo' => 'administrador'
+				);
 
-					$this->session->set_userdata($s_usuario);
-					return 2;
-				}
-				else{
-					return 0;
-				}
+				$this->session->set_userdata($s_usuario);
+				return 2;
+			}
+			else{
+				return 0;
+			}
 
 		}
 	}

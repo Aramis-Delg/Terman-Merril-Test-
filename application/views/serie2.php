@@ -36,8 +36,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-              (Observaciones generales: el tiempo para esta serie es de 2 minutos y sus reactivos son 11.)
-              <br>
               <br>
               <h4>Lee cada cuestión y selecciona la respuesta correspondiente, por ejemplo:</h4>
               <b>Compramos relojes ¿Porqué?:</b> 

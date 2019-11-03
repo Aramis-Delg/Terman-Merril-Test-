@@ -6,6 +6,7 @@ class Registro extends CI_Controller {
 		parent::__construct();
 		$this->load->model('registro_model');
 		$this->load->model('login_model');
+		$this->load->model('admin_model');
 	}
 
 	public function index(){
@@ -79,7 +80,7 @@ class Registro extends CI_Controller {
 			//$this->load->view('registro',$error);
 
 			//método para registrar en la base
-			
+			$ver1=rand(100000,999999);
 			if(isset($datos)){
 			/*Usuarios*/
 			$nombre = $datos['nombre'];
@@ -94,11 +95,54 @@ class Registro extends CI_Controller {
 			$ine = $auxCV;
 			$contrasena = $datos['telefono'];
 			$vacante_id = $datos['vacante'];
-			$this->registro_model->insertarUsuario($nombre,$apellidos,$edad,$sexo,$estado,$correo,$telefono,$curp,$curriculum,$ine,$contrasena,$vacante_id,$test);
-		//redirect('table_view')
-			redirect('Comenzar');
+			$test=0;
+			$verificador = $ver1;
+			$this->registro_model->insertarUsuario($nombre,$apellidos,$edad,$sexo,$estado,$correo,$telefono,$curp,$curriculum,$ine,$contrasena,$vacante_id,$test,$verificador);
 				}
 
+			$this->load->library('phpmailer_lib');
+		$aux=$this->session->userdata('s_id');
+		//var_dump($aux);
+		$to = $this->admin_model->obtenerCorreo($aux);
+		
+        // PHPMailer object
+		$mail = $this->phpmailer_lib->load();
+
+        // SMTP configuration
+		$mail->isSMTP();
+		$mail->Host     = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = 'luis.rescala@gmail.com';
+		$mail->Password = 'shinratensei1992';
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port     = 465;
+
+		$mail->setFrom('luis.rescala@gmail.com', 'Luis Rescala');
+
+        // Add a recipient
+		//$mail->addAddress($to);
+		$mail->addAddress($to[0]->correo);
+
+
+        // Email subject
+		$mail->Subject = 'Innmortal - Codigo verificador';
+
+        // Set email format to HTML
+		$mail->isHTML(false);
+
+        // Email body content
+		$mailContent = 'Tu codigo de verificación es: '.$ver1;
+
+		$mail->Body = $mailContent;
+
+        // Send email
+		if(!$mail->send()){
+			return NULL;
+		}else{
+			
+			redirect('Verificar');
+			//método de actualizar
+		}
 
 
 			}

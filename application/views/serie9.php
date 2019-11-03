@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-            (Observaciones generales: tiempo 2 minutos, 18 reactivos.)
-            <br>
             <br>
               <h4>Selecciona la palabra que no correspondan con las demás en cada serie:</b> 
             <br>

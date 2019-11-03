@@ -44,7 +44,6 @@ class preguntas_model extends CI_Model{
 	}
 
 	public function selectRango1($puntos){
-		//SELECT `id_rango`, `nombre`, `min`, `max`, `segmento_id` FROM `rango` WHERE $puntos>=min AND $puntos<=max AND segmento_id=1;
 		$query = $this->db->query("select id_rango from rango where ".$puntos." >= min AND ".$puntos." <= max AND segmento_id=1;");
 		return $query->result();
 	}

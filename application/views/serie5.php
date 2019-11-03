@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-            (Observaciones generales: el tiempo es de 5 minutos y son 12 reactivos.)
-            <br>
             <br>
               <h4>Encuentra las respuesta lo antes posible y escribe el resultado. Utiliza una hoja de papel y un lápiz para este ejercicio.</b> 
             <br>   

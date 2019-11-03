@@ -15,7 +15,7 @@ class Administrador extends CI_Controller {
 		
 		if($this->session->userdata('s_nombre')){
 			if ($this->session->userdata('s_tipo')=='usuario') {
-				redirect('Comenzar');
+				redirect('Verificar');
 				
 			}
 

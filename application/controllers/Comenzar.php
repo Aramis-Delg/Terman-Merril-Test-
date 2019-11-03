@@ -9,12 +9,24 @@ class Comenzar extends CI_Controller {
 	}
 	public function index()
 	{		
-
-		if($this->session->userdata('s_nombre')){
-			$this->load->view('comenzar');
-		} else {
-			redirect('login');
+		if($this->session->userdata('s_tipo')=='usuario'){
+			if($this->session->userdata('s_validado')=='1'){
+				if ($this->session->userdata('s_test')=='0') {
+					$this->load->view('comenzar');	
+				}else{
+					$this->load->view('terminar');
+				}
+			}else{
+				redirect('Verificar');
+			}
+		}else{
+			if($this->session->userdata('s_tipo')=='administrador'){
+			redirect('Administrador');
+			}else{
+				redirect('login');
+			}
 		}
+		
 	}
 
 	public function serie1($id){
@@ -41,7 +53,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb1Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb1Total($temp,$id_usuario,$pregunta);
 			}else {
 				//insert
 
@@ -67,7 +79,7 @@ class Comenzar extends CI_Controller {
 //imprimes los radiobutton como en la vista 1?si ¿quieres tratar de modificar el método para guardar la serie 2?,si, se deben crear varios metodos tambien en el model 
 
 	//vas entonces, mientras voy al wc :p, oc
-		public function respS2(){
+	public function respS2(){
 		$ides = $this->preguntas_model->verSerieb2();
 		$puntos=0;
 		//var_dump($this->session->userdata('s_id'));
@@ -82,7 +94,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb2Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb2Total($temp,$id_usuario,$pregunta);
 			}else {
 				//insert
 
@@ -123,7 +135,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb3Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb3Total($temp,$id_usuario,$pregunta);
 			}else {
 				//insert
 
@@ -242,7 +254,7 @@ class Comenzar extends CI_Controller {
 	}
 
 
-		public function respS6(){
+	public function respS6(){
 		$ides = $this->preguntas_model->verSerieb6();
 		$puntos=0;
 		//var_dump($this->session->userdata('s_id'));
@@ -257,7 +269,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb6Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb6Total($temp,$id_usuario,$pregunta);
 			}else {
 				if($temp[0]!=1){
 					$temp='0';
@@ -265,8 +277,8 @@ class Comenzar extends CI_Controller {
 					$puntos=$puntos+intval($temp);
 				} else {
 					$temp='1';
-				$this->preguntas_model->insertSerieb6Total($temp,$id_usuario,$pregunta);
-				$puntos=$puntos+intval($temp);
+					$this->preguntas_model->insertSerieb6Total($temp,$id_usuario,$pregunta);
+					$puntos=$puntos+intval($temp);
 
 				}
 				//insert
@@ -306,7 +318,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb7Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb7Total($temp,$id_usuario,$pregunta);
 			}else {
 				if($temp[0]!=1){
 					$temp='0';
@@ -314,8 +326,8 @@ class Comenzar extends CI_Controller {
 					$puntos=$puntos+intval($temp);
 				} else {
 					$temp='1';
-				$this->preguntas_model->insertSerieb7Total($temp,$id_usuario,$pregunta);
-				$puntos=$puntos+intval($temp);
+					$this->preguntas_model->insertSerieb7Total($temp,$id_usuario,$pregunta);
+					$puntos=$puntos+intval($temp);
 
 				}
 				//insert
@@ -339,7 +351,7 @@ class Comenzar extends CI_Controller {
 	}
 
 
-		public function respS8(){
+	public function respS8(){
 		$ides = $this->preguntas_model->verSerieb8();
 		$puntos=0;
 		//var_dump($this->session->userdata('s_id'));
@@ -354,7 +366,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb8Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb8Total($temp,$id_usuario,$pregunta);
 			}else {
 				//insert
 				$this->preguntas_model->insertSerieb8Total($temp[0],$id_usuario,$pregunta);
@@ -378,7 +390,7 @@ class Comenzar extends CI_Controller {
 		
 	}
 
-		public function respS9(){
+	public function respS9(){
 		$ides = $this->preguntas_model->verSerieb9();
 		$puntos=0;
 		//var_dump($this->session->userdata('s_id'));
@@ -393,7 +405,7 @@ class Comenzar extends CI_Controller {
 			if(!$temp){
 				$temp='0';
 				//insert
-			$this->preguntas_model->insertSerieb9Total($temp,$id_usuario,$pregunta);
+				$this->preguntas_model->insertSerieb9Total($temp,$id_usuario,$pregunta);
 			}else {
 				if($temp[0]!=1){
 					$temp='0';
@@ -401,8 +413,8 @@ class Comenzar extends CI_Controller {
 					$puntos=$puntos+intval($temp);
 				} else {
 					$temp='1';
-				$this->preguntas_model->insertSerieb9Total($temp,$id_usuario,$pregunta);
-				$puntos=$puntos+intval($temp);
+					$this->preguntas_model->insertSerieb9Total($temp,$id_usuario,$pregunta);
+					$puntos=$puntos+intval($temp);
 
 				}
 				//insert
@@ -425,7 +437,7 @@ class Comenzar extends CI_Controller {
 		
 	}
 
-		public function respS10(){
+	public function respS10(){
 		$this->load->model('preguntas_model');
 		$ides = $this->preguntas_model->verSerieb10();
 		$puntos=0;

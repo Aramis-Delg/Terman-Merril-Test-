@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-            (Observaciones generales: el tiempo es de 3 minutos y son 17 reactivos.)
-            <br>
             <br>
               <h4>A continuación lee cada una de las oraciones, las palabras están mezcladas. Ordena mentalmente cada una, identifica si el significado de las oracion es verdadero o falso. :</b> 
             <br>

@@ -93,8 +93,8 @@ function myFunction2() {
             echo "<td><button type='button' class='btn btn-info'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
             echo "<td>".$row2->estatus."</td>";
             echo "<td>
-            <a class='edit confirmation' onclick='myFunction()' href='".base_url()."Administrador/CorreoAceptado/".$row2->id."' title='Aceptar' data-toggle='tooltip'>Aceptar  <i class='material-icons'>&#xE876;</i></a></td>";
-            echo "<td> <a class='confirmation' onclick='myFunction2()' href='".base_url()."Administrador/CorreoRechazado/".$row2->id."' class='delete' title='Rechazar' data-toggle='tooltip'>Rechazar<i class='material-icons'>&#xE14C;</i></a></td>";
+            <a class='edit' onclick='myFunction()' href='".base_url()."Administrador/CorreoAceptado/".$row2->id."' title='Aceptar' data-toggle='tooltip'>Aceptar  <i class='material-icons'>&#xE876;</i></a></td>";
+            echo "<td> <a onclick='myFunction2()' href='".base_url()."Administrador/CorreoRechazado/".$row2->id."' class='delete' title='Rechazar' data-toggle='tooltip'>Rechazar<i class='material-icons'>&#xE14C;</i></a></td>";
             echo "</tr>";
           }
 

@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-            (Observaciones generales: El tiempo es de 2 minutos y son 30 reactivos.)
-            <br>
             <br>
               <h4>Cuando las dos palabras signifiquen lo mismo selecciona “ Igual ”, cuando signifiquen lo opuesto selecciona la opción “ Opuesto “:</b> 
             <br>

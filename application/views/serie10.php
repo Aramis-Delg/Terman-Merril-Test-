@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-            (Observaciones generales: el tiempo es de 4 minutos y son 11 reactivos.)
-            <br>
             <br>
               <h4>En cada renglón procura encontrar cómo están hechas las series. Después, escribe los dos números que deban seguir en cada serie:</b> 
                 <br>

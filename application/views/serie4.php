@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+
 <style type="text/css">
     ul{
         list-style: none;
@@ -35,8 +36,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h3>Instrucciones</h3>
            </div>
            <div class="modal-body">
-            (Observaciones generales: el tiempo es de 3 minutos y son 18 reactivos.)
-            <br>
             <br>
               <h4>Selecciona las letras correspondientes a las dos palabras que indican algo que siempre tiene el sujeto, selecciona solamente dos:</b> 
             <br>
@@ -74,7 +73,7 @@ foreach ($verRespuestas as $row2) {
         $aux2 = $row2->id_pregunta;
     if($aux==$aux2){
         //echo " <tr><th>";
-        echo "&nbsp&nbsp<label><h5><input type='checkbox' value='".$row2->puntos."' id='4' name='respuesta".$aux2."[]'>".$row2->valor."</h5></label>";
+        echo "&nbsp&nbsp<label><h5><input class='single-checkbox".$aux2."' type='checkbox' value='".$row2->puntos."' id='4' name='respuesta".$aux2."[]'>".$row2->valor."</h5></label>";
         //echo "</th> </tr>";
     }
 }
@@ -82,6 +81,7 @@ foreach ($verRespuestas as $row2) {
 
   echo "</ul>";
   $i++;
+  echo "<script type=''text/javascript>var limit = 2; $('input.single-checkbox".$aux."').on('click', function (evt) {if ($('.single-checkbox".$aux.":checked').length > limit) {this.checked = false;}});</script>";
     } ?>
 
   </label>

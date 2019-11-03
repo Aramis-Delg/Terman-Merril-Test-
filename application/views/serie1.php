@@ -16,29 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       list-style: none;
     }
   </style>
-
- 
-<!--
-
-  Veamos ¿en qué íbamos?
-
-  ya añade registros a tabla total segmentos y a usuarios_resp de la serie 1
-
-  Ok, veamos... la serie 2 es parecida a la serie 1 ¿no? 
-  si, espera
-
-  como haremos que al terminar el temporizador, nos ejecute la dirección url?, esta 
-
-  He vuelto. Espera, tengo un js para ello
-
-  $("#questionform").submit();
-
-  Esa madre se pone dentro de la función del intervalo
-  no hizo nad
-
-  Deja revisar, espera
-
--->
 </head>
 
 <body>
@@ -51,8 +28,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </div>
     <div class="modal-body">
-      ( Observaciones generales: esta prueba dura 2 minutos y la cantidad de reactivos son 16.)
-      <br>
       <br>
       <h4>Selecciona la respuesta que complete correctamente la oración, tal y como lo
       muestra el siguiente ejemplo:</h4>
