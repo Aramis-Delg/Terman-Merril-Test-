@@ -19,7 +19,10 @@ class Serie4 extends CI_Controller {
 		//var_dump($id_usuario);
 		for ($i=0; $i < sizeof($ides); $i++) { 
 			$respuestas_user = $this->input->post('respuesta'.$ides[$i]->id); 
-			$pregunta = $ides[$i]->id; 
+			$pregunta = $ides[$i]->id;
+			if (!$respuestas_user) {
+			 	$respuestas_user[0]=0;
+			 } 
 			if (sizeof($respuestas_user)<2) {
 				$respuestas_user[0]=0;
 				//esta línea es solo para mostrar el valor de la respuesta

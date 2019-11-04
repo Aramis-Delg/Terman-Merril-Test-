@@ -30,12 +30,7 @@ class Comenzar extends CI_Controller {
 	}
 
 	public function serie1($id){
-		$this->load->model('preguntas_model');
-		$this->load->model('login_model');
-		$data['verSerie1'] = $this->preguntas_model->verSerie1();
-		$data['testEstado'] = $this->login_model->testEstado($id);
-		$data['verRespuestas'] = $this->preguntas_model->verRespuestas1();
-		$this->load->view('serie1',$data);
+		
 	}
 
 	public function respS1(){

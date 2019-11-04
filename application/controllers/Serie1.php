@@ -6,6 +6,7 @@ class Serie1 extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('serie1_model');
+		$this->load->model('login_model');
 	}
 
 
@@ -13,7 +14,13 @@ class Serie1 extends CI_Controller {
 		if($this->session->userdata('s_tipo')=='usuario'){
 			if($this->session->userdata('s_validado')=='1'){
 				if ($this->session->userdata('s_test')=='0') {
-					$this->load->view('comenzar');	
+
+					$this->load->model('preguntas_model');
+					$this->load->model('login_model');
+					$data['verSerie1'] = $this->preguntas_model->verSerie1();
+					$data['testEstado'] = $this->login_model->testEstado($this->session->userdata('s_id'));
+					$data['verRespuestas'] = $this->preguntas_model->verRespuestas1();
+					$this->load->view('serie1',$data);	
 				}else{
 					$this->load->view('terminar');
 				}
@@ -22,7 +29,7 @@ class Serie1 extends CI_Controller {
 			}
 		}else{
 			if($this->session->userdata('s_tipo')=='administrador'){
-			redirect('Administrador');
+				redirect('Administrador');
 			}else{
 				redirect('login');
 			}
@@ -32,7 +39,7 @@ class Serie1 extends CI_Controller {
 	}
 
 
-		public function serie1($id){
+	public function serie1($id){
 		$this->load->model('serie1_model');
 		$this->load->model('login_model');
 		$data['verSerie1'] = $this->serie1_model->verSerie1();
