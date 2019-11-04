@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   <div class="container"> 
-   <form id="questionform" method="post" action="<?php echo base_url()?>index.php/Comenzar/respS5">
+   <form id="questionform" method="post" action="<?php echo base_url()?>index.php/Serie5/respS5">
    <div class="container"> 
     <h3>Serie V. Mide aritmética y capacidad de concentración.</h3>
         <label class="control-label">
@@ -65,7 +65,7 @@ foreach ($verRespuestas as $row2) {
         $aux2 = $row2->id_pregunta;
     if($aux==$aux2){
         //echo " <tr><th>";
-        echo "&nbsp&nbsp<label><h5><input type='text' id='5' name='respuesta".$aux2."'></h5></label>";
+        echo "&nbsp&nbsp<label><h5><input autocomplete='off' type='text' id='5' name='respuesta".$aux2."'></h5></label>";
         //echo "</th> </tr>";
     }
 }

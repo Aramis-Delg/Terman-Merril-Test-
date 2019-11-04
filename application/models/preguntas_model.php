@@ -402,7 +402,7 @@ class preguntas_model extends CI_Model{
 
 
 			/*******************************Comienza serie 7****************************************/
-				public function verSerie7(){
+	public function verSerie7(){
 		$query = $this->db->query("select * from preguntas where segmento_id=7");
 		return $query->result();
 	}

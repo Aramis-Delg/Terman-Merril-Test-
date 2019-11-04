@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
    <div class="container"> 
-    <form id="questionform" method="post" action="<?php echo base_url()?>index.php/Comenzar/respS10">
+    <form id="questionform" method="post" action="<?php echo base_url()?>index.php/Serie10/respS10">
     <h3>Serie X.  Mide anticipación, atención o seriación.</h3>
         <label class="control-label">
         <?php
@@ -88,10 +88,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   echo "<li>"."<h4>".$i.". ".$row->pregunta."</h4>";
   
         echo " <tr><th>";
-        echo "<label><h5><div class='col-xs-2' align='right'><input type='text' id='".$row->id."' name='respuesta".$row->id."' ></div></h5></label>";
+        echo "<label><h5><div class='col-xs-2' align='right'><input type='text' autocomplete='off' id='".$row->id."' name='respuesta".$row->id."' ></div></h5></label>";
         echo "</th> </tr>";
         echo " <tr><th>";
-        echo "<label><h5><div class='col-xs-2' align='right'><input type='text' id='".$row->id."' name='respuestab".$row->id."' ></div></h5></label>";
+        echo "<label><h5><div class='col-xs-2' align='right'><input type='text' autocomplete='off' id='".$row->id."' name='respuestab".$row->id."' ></div></h5></label>";
         echo "</th> </tr>";
    
   echo "</li>";
