@@ -31,6 +31,18 @@ class Administrador extends CI_Controller {
 		
 	}
 
+	public function Resultados(){
+		$aux2 = $this->input->post('id');
+		$datos = $this->admin_model->ObtenerResultadosCI($aux2);
+		//var_dump($datos);
+		if(!$datos){
+			$datos = 'Nada';
+			echo json_encode($datos, JSON_FORCE_OBJECT);
+		} else {
+			echo json_encode($datos, JSON_FORCE_OBJECT);
+		}
+	}
+
 	public function CorreoAceptado(){
 		// Load PHPMailer library
 		$this->load->library('phpmailer_lib');
