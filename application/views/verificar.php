@@ -109,10 +109,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="campos" class="collapse" >
 			<div class="form-group">
 				<div class="row">
-					<p class="hint-text">El correo que tenemos registrado es:</p><?php echo $this->session->userdata('s_correo');?> <br><p class="hint-text">. Si es correcto solo da clic en "Reenviar Código".</p>
+					<p class="hint-text">El correo que tenemos registrado es:</p><?php echo substr($this->session->userdata('s_correo'),0,7);?>******* <br><p class="hint-text">. Si es correcto solo da clic en "Reenviar Código".</p>
 					<div class="form-group"><button type="button" onclick="ReenviarCodigo()" id="guardar" class="btn btn-primary btn-block">Reenviar Código</button></div>
 					<p class="hint-text">Si es incorrecto o tienes problemas con tu cuenta, por favor registra otra dirección de correo electrónico.</p>
-					<div class="col-xs-6"><input type="mail" id="correo" class="form-control" name="correo" placeholder="example@mail" required></div>
+					<div class="col-xs-6"><input type="mail" id="correo" class="form-control" name="correo" placeholder="example@mail" required>
+						<input type="password" id="telefono" class="form-control" name="telefono" placeholder="Confirma tu contraseña" required></div>
 				</div>          
 			</div>
 
@@ -166,10 +167,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	};
 
 	function ActualizarCorreo(){
-		
+		var contra = $('.telefono').val();
 		var correo = $('#correo').val();
-		console.log(correo);
-		if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(correo)){
+		var contra2 = '<?php echo $this->session->userdata('s_telefono');?>';
+		if(contra=contra2){
+			if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(correo)){
 			alert("La dirección de email " + correo + " es correcta.");
 			$.ajax({
 				url:'<?=base_url()?>Verificar/actualizar',
@@ -190,6 +192,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		} else {
 			alert("La dirección de email es incorrecta.");
 		}
+		}else{
+			alert('Contraseña erronea');
+		}
+		console.log(correo);
+		
 
 		
 	};
