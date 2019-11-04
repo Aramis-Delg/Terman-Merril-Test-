@@ -7,7 +7,11 @@ class Serie4 extends CI_Controller {
 		parent::__construct();
 		$this->load->model('serie4_model');
 	}
-	public function index(){		
+	public function index(){
+
+		$data['verSerie4'] = $this->serie4_model->verSerie4();
+		$data['verRespuestas'] = $this->serie4_model->verRespuestas4();
+		$this->load->view('serie4',$data);
 	
 	}
 
@@ -20,6 +24,9 @@ class Serie4 extends CI_Controller {
 		for ($i=0; $i < sizeof($ides); $i++) { 
 			$respuestas_user = $this->input->post('respuesta'.$ides[$i]->id); 
 			$pregunta = $ides[$i]->id; 
+			if(!$respuestas_user){
+				$respuestas_user[0]=0;
+			}
 			if (sizeof($respuestas_user)<2) {
 				$respuestas_user[0]=0;
 				//esta línea es solo para mostrar el valor de la respuesta
@@ -42,20 +49,11 @@ class Serie4 extends CI_Controller {
 		//var_dump($data[0]->id_rango);
 		//insert en total_segmento
 		$this->serie4_model->insertTotal4($puntos,$id_usuario,$data[0]->id_rango);
-		$this->load->model('serie5_model');
-		$data['verSerie5'] = $this->serie5_model->verSerie5();
 		$data['verRespuestas'] = $this->serie4_model->verRespuestas4();
-		$this->load->view('serie5',$data);
+		redirect('Serie5');
 			//var_dump($puntos);
-
 	}
 
-	public function serie4(){
-		$this->load->model('serie4_model');
-		$data['verSerie4'] = $this->serie4_model->verSerie4();
-		$data['verRespuestas'] = $this->serie4_model->verRespuestas4();
-		$this->load->view('serie4',$data);
-	}
 
 
 

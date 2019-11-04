@@ -5,9 +5,12 @@ class Serie5 extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
-		$this->load->model('verificar_model');
+		$this->load->model('serie5_model');
 	}
-	public function index(){		
+	public function index(){	
+		$data['verSerie5'] = $this->serie5_model->verSerie5();
+		$data['verRespuestas'] = $this->serie5_model->verRespuestas5();
+		$this->load->view('serie5',$data);	
 	
 	}
 
@@ -50,21 +53,13 @@ class Serie5 extends CI_Controller {
 		$puntosTotal=($puntos*2);
 		//var_dump($puntosTotal);
 		$this->serie5_model->insertTotal5($puntosTotal,$id_usuario,$data[0]->id_rango);
-		$this->load->model('serie6_model');
-		$data['verSerie6'] = $this->serie6_model->verSerie6();
 		$data['verRespuestas'] = $this->serie5_model->verRespuestas5();
-		$this->load->view('serie6',$data);
 			//var_dump($puntos);
+		redirect('Serie6');
 
 	}
 
 
-	public function serie5(){
-		$this->load->model('serie5_model');
-		$data['verSerie5'] = $this->serie5_model->verSerie5();
-		$data['verRespuestas'] = $this->serie5_model->verRespuestas5();
-		$this->load->view('serie5',$data);
-	}
 
 
 

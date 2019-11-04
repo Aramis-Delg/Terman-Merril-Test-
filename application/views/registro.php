@@ -130,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <div class="form-group">
         <div class="row">
-          <div class="col-xs-6"><input type="text" class="form-control" name="telefono" minlength="10" maxlength="10" placeholder="telefono" required></div>
+          <div class="col-xs-6"><input type="text" id="uintTextBox" class="form-control" name="telefono" minlength="10" maxlength="10" placeholder="telefono" required></div>
           <div class="col-xs-6">
 
             <input type="file" name="archivo" id="nombreArchivo" style="display: none" onchange="CambiarINE()" accept="application/pdf" required>
@@ -290,4 +290,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                            }
                          });
                 };
+
+                function setInputFilter(textbox, inputFilter) {
+  ["input", "mousedown", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      }
+    });
+  });
+}
+
+
+// Install input filters.
+setInputFilter(document.getElementById("uintTextBox"), function(value) {
+  return /^\d*$/.test(value); });
+setInputFilter(document.getElementById("intTextBox"), function(value) {
+  return /^-?\d*$/.test(value); });
               </script>

@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <br>
          <br>
          <form action="">
-           <button type="submit" formaction="<?php echo base_url()?>index.php/Serie1/serie1/<?php echo $this->session->userdata('s_id'); ?>" class="btn btn-primary">Continuar</button>
+           <button type="submit" formaction="<?php echo base_url()?>Serie1/" class="btn btn-primary">Continuar</button>
 
         <button   type="submit" formaction="<?php echo base_url()?>Login/cerrar_sesion" class="btn btn-secondary" >Cerrar sesión</button>
         </form>

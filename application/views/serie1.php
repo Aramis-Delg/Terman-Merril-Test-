@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div></div>
-<form id="questionform" method="post" name="questionform" action="<?php echo base_url()?>index.php/Serie1/respS1">
+<form id="questionform" method="post" name="questionform" action="<?php echo base_url()?>Serie1/respS1">
  <div class="container"> 
   <h3>Serie I. Mide información o conocimientos.</h3>
   <label class="control-label">
@@ -77,22 +77,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   </label>
 
-
-
   <div class="form-group" > <!-- Submit button !-->
-    <button class="btn btn-primary " name="submit"  type="submit">Enviar</button>
+    <button class="btn btn-primary"  type="submit">Enviar</button>
   </div>
+
 </form>
 </div>
  <script type="text/javascript">
     function temporizador() {
-      setInterval(function(){
-        document.questionform.submit();}, 6000);
+        setTimeout(function() {
+          alert('Tu tiempo se ha terminado. Comienza serie 2.');
+        $("#questionform").submit();
+      }, 120000);
+       
     }
+    
     $(document).ready(function()
     {   
      $("#mostrarmodal").modal("show");
+
    });
+
 
 
   </script>

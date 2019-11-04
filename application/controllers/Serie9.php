@@ -8,7 +8,9 @@ class Serie9 extends CI_Controller {
 		$this->load->model('serie9_model');
 	}
 	public function index(){		
-	
+	$data['verSerie9'] = $this->serie9_model->verSerie9();
+	$data['verRespuestas'] = $this->serie9_model->verRespuestas9();
+	$this->load->view('serie9',$data);
 	}
 
 		public function respS9(){
@@ -50,19 +52,9 @@ class Serie9 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie9_model->insertTotal9($puntos,$id_usuario,$data[0]->id_rango);
-		$this->load->model('serie10_model');
-		$data['verSerie10'] = $this->serie10_model->verSerie10();
-		$data['verRespuestas'] = $this->serie9_model->verRespuestas9();
-		$this->load->view('serie10',$data);
+		redirect('Serie10');
 			//var_dump($puntos);
 		
-	}
-
-	public function serie9(){
-		$this->load->model('serie9_model');
-		$data['verSerie9'] = $this->serie9_model->verSerie9();
-		$data['verRespuestas'] = $this->serie9_model->verRespuestas9();
-		$this->load->view('serie9',$data);
 	}
 
 

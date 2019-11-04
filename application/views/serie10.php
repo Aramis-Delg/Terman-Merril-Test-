@@ -16,13 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         list-style: none;
 </style>
 
-<script type="text/javascript">
-    $(document).ready(function()
-      {
-         $("#mostrarmodal").modal("show");
-      });
-
-</script>
 
 </head>
 
@@ -68,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            </div>
        </div>
            <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-danger">Comenzar</a>
+          <a href="#" onclick="temporizador()" data-dismiss="modal" class="btn btn-danger">Comenzar</a>
            </div>
       </div>
    </div>
@@ -107,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="form-group"> <!-- Submit button !-->
         <form action="">
  
-        <button class="btn btn-primary " name="submit" type="submit">Terminar</button>
+        <button class="btn btn-primary "  type="submit">Terminar</button>
 
     </form>
     </div>
@@ -116,3 +109,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function()
+      {
+         $("#mostrarmodal").modal("show");
+      });
+
+      function temporizador() {
+        setTimeout(function() {
+          alert('El tiempo ha terminado.');
+        $("#questionform").submit();
+      }, 240000);
+       
+    }
+
+
+</script>

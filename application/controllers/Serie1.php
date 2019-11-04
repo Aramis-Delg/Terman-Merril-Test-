@@ -10,10 +10,18 @@ class Serie1 extends CI_Controller {
 
 
 	public function index(){
+
+		
+
 		if($this->session->userdata('s_tipo')=='usuario'){
 			if($this->session->userdata('s_validado')=='1'){
 				if ($this->session->userdata('s_test')=='0') {
-					$this->load->view('comenzar');	
+					$this->load->model('serie1_model');
+					$this->load->model('login_model');
+					$data['verSerie1'] = $this->serie1_model->verSerie1();
+					$data['testEstado'] = $this->login_model->testEstado($this->session->userdata('s_id'));
+					$data['verRespuestas'] = $this->serie1_model->verRespuestas1();
+					$this->load->view('serie1',$data);
 				}else{
 					$this->load->view('terminar');
 				}
@@ -22,7 +30,7 @@ class Serie1 extends CI_Controller {
 			}
 		}else{
 			if($this->session->userdata('s_tipo')=='administrador'){
-			redirect('Administrador');
+				redirect('Administrador');
 			}else{
 				redirect('login');
 			}
@@ -31,15 +39,6 @@ class Serie1 extends CI_Controller {
 		$this->load->model('serie1_model');
 	}
 
-
-		public function serie1($id){
-		$this->load->model('serie1_model');
-		$this->load->model('login_model');
-		$data['verSerie1'] = $this->serie1_model->verSerie1();
-		$data['testEstado'] = $this->login_model->testEstado($id);
-		$data['verRespuestas'] = $this->serie1_model->verRespuestas1();
-		$this->load->view('serie1',$data);
-	}
 
 	public function respS1(){
 		$ides = $this->serie1_model->verSerieb1();
@@ -73,11 +72,7 @@ class Serie1 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie1_model->insertTotal1($puntos,$id_usuario,$data[0]->id_rango);
-		$this->load->model('serie2_model');
-		$data['verSerie2'] = $this->serie2_model->verSerie2();
-		$data['verRespuestas'] = $this->serie1_model->verRespuestas1();
-		$this->load->view('serie2',$data);
-			//var_dump($puntos);
+		redirect('Serie2');
 		
 	}
 

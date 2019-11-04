@@ -27,10 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <div class="card text-center">
       <div class="card-header">
-       <?php echo $this->session->userdata('s_nombre');?> haz concluido tu prueba
+       Felicidades <?php echo $this->session->userdata('s_nombre');?> 
     </div>
     <div class="card-body">
-        <h5 class="card-title"><i>El resultado será enviado a tu dirección de correo electrónico</i></h5>
+        <h5 class="card-title"><i>Ha terminado la prueba, en 3 días hábiles le enviaremosresultados a su dirección email.
+</i></h5>
          <form action="<?php echo base_url()?>index.php/Administrador/cerrar_sesion">
              <button type="submit" class="btn btn-info ">Cerrar Sesión</button>
           </form>

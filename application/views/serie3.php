@@ -16,13 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         list-style: none;
 </style>
 
-<script type="text/javascript">
-    $(document).ready(function()
-      {
-         $("#mostrarmodal").modal("show");
-      });
-
-</script>
 
 </head>
 
@@ -45,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </th></tr>    
        </div>
            <div class="modal-footer">
-          <a href="#" data-dismiss="modal" class="btn btn-danger">Comenzar</a>
+          <a href="#" onclick="temporizador()" data-dismiss="modal" class="btn btn-danger">Comenzar</a>
            </div>
       </div>
    </div>
@@ -85,10 +78,27 @@ foreach ($verRespuestas as $row2) {
      
     
     <div class="form-group" > <!-- Submit button !-->
-        <button class="btn btn-primary " name="submit"  type="submit">Enviar</button>
+        <button class="btn btn-primary "   type="submit">Enviar</button>
     </div>
     </form>
     </div>
 
 </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function()
+      {
+         $("#mostrarmodal").modal("show");
+      });
+
+        function temporizador() {
+        setTimeout(function() {
+          alert('Tu tiempo se ha terminado. Comienza serie 4.');
+        $("#questionform").submit();
+      }, 120000);
+       
+    }
+
+
+</script>

@@ -7,7 +7,11 @@ class Serie3 extends CI_Controller {
 		parent::__construct();
 		$this->load->model('serie3_model');
 	}
-	public function index(){		
+	public function index(){
+
+		$data['verSerie3'] = $this->serie3_model->verSerie3();
+		$data['verRespuestas'] = $this->serie3_model->verRespuestas3();
+		$this->load->view('serie3',$data);		
 	
 	}
 
@@ -42,19 +46,12 @@ class Serie3 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie3_model->insertTotal3($puntos,$id_usuario,$data[0]->id_rango);
-		$this->load->model('serie4_model');
-		$data['verSerie4'] = $this->serie4_model->verSerie4();
 		$data['verRespuestas'] = $this->serie3_model->verRespuestas3();
-		$this->load->view('serie4',$data);
+		redirect('Serie4');
 			//var_dump($puntos);
 		
 	}
-	public function serie3(){
-		$this->load->model('serie3_model');
-		$data['verSerie3'] = $this->serie3_model->verSerie3();
-		$data['verRespuestas'] = $this->serie3_model->verRespuestas3();
-		$this->load->view('serie3',$data);
-	}
+
 
 
 

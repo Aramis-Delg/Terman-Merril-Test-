@@ -8,7 +8,9 @@ class Serie8 extends CI_Controller {
 		$this->load->model('serie8_model');
 	}
 	public function index(){		
-	
+	$data['verSerie8'] = $this->serie8_model->verSerie8();
+	$data['verRespuestas'] = $this->serie8_model->verRespuestas8();
+	$this->load->view('serie8',$data);
 	}
 
 	public function respS8(){
@@ -42,19 +44,9 @@ class Serie8 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie8_model->insertTotal8($puntos,$id_usuario,$data[0]->id_rango);
-		$this->load->model('serie9_model');
-		$data['verSerie9'] = $this->serie9_model->verSerie9();
-		$data['verRespuestas'] = $this->serie8_model->verRespuestas8();
-		$this->load->view('serie9',$data);
+		redirect('Serie9');
 			//var_dump($puntos);
 		
-	}
-
-	public function serie8(){
-		$this->load->model('serie8_model');
-		$data['verSerie8'] = $this->serie8_model->verSerie8();
-		$data['verRespuestas'] = $this->serie8_model->verRespuestas8();
-		$this->load->view('serie8',$data);
 	}
 
 

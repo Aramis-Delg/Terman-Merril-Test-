@@ -8,7 +8,9 @@ class Serie10 extends CI_Controller {
 		$this->load->model('serie10_model');
 	}
 	public function index(){		
-	
+	$data['verSerie10'] = $this->serie10_model->verSerie10();
+	$data['verRespuestas'] = $this->serie10_model->verRespuestas10();
+	$this->load->view('serie10',$data);
 	}
 
 	public function respS10(){
@@ -62,12 +64,6 @@ class Serie10 extends CI_Controller {
 
 	}
 
-	public function serie10(){
-		$this->load->model('serie10_model');
-		$data['verSerie10'] = $this->serie10_model->verSerie10();
-		$data['verRespuestas'] = $this->serie10_model->verRespuestas10();
-		$this->load->view('serie10',$data);
-	}
 
 
 
