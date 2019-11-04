@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="form-group">
 				<div class="row">
 					<p class="hint-text">El correo que tenemos registrado es:</p><?php echo $this->session->userdata('s_correo');?> <br><p class="hint-text">. Si es correcto solo da clic en "Reenviar Código".</p>
-					<div class="form-group"><button type="button" onclick="ActualizarCorreo()" id="guardar" class="btn btn-primary btn-block">Reenviar Código</button></div>
+					<div class="form-group"><button type="button" onclick="ReenviarCodigo()" id="guardar" class="btn btn-primary btn-block">Reenviar Código</button></div>
 					<p class="hint-text">Si es incorrecto o tienes problemas con tu cuenta, por favor registra otra dirección de correo electrónico.</p>
 					<div class="col-xs-6"><input type="mail" id="correo" class="form-control" name="correo" placeholder="example@mail" required></div>
 				</div>          
@@ -127,7 +127,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </div>
 <script type="text/javascript">
-	
 	function verificarCodigo(){
 		var codigo = $('#codigo').val();
 		$.ajax({
@@ -141,38 +140,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					console.log(response);
 				}else{
 					alert('El códogo es correcto. Ahora puedes comenzar el test.');
-					
-
-					
-						window.location.href = '<?php echo base_url()?>';
-					
-
+					window.location.href = '<?php echo base_url()?>';
 				}
-
-
 			}
 		});
 	};
-	function ActualizarCorreo(){
-		var correo = $('#correo').val();
+
+	function ReenviarCodigo(){
+		var correo = '<?php echo $this->session->userdata('s_correo');?>';
 		$.ajax({
-			url:'<?=base_url()?>Verificar/actualizar',
+			url:'<?=base_url()?>Verificar/Reenviar',
 			method: 'post',
 			data: {correo: correo},
 			dataType: 'text',
 			success: function(response){
-				if(response!='Correo actualizado'){ 
-					alert('Error inesperado, intente nuevamente. \nContacte al administrador de sistemas si el error persiste.');
+				if(response!='Enviado'){ 
+					alert('El correo no ha sido enviado, intente nuevamente.\nSi el error persiste, comunícate con el administrador del sistema.');
 					console.log(response);
 				}else{
-					alert('El correo ha sido actualizado.\nSe enviará el código a tu correo nuevamente.');
-					location.reload(true);
-					console.log(response);
+					alert('El correo ha sido enviado nuevamente a tu correo.');
+					//window.location.href = '<?php echo base_url()?>';
 				}
-
-
 			}
 		});
+	};
+
+	function ActualizarCorreo(){
+		
+		var correo = $('#correo').val();
+		console.log(correo);
+		if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(correo)){
+			alert("La dirección de email " + correo + " es correcta.");
+			$.ajax({
+				url:'<?=base_url()?>Verificar/actualizar',
+				method: 'post',
+				data: {correo: correo},
+				dataType: 'text',
+				success: function(response){
+					if(response!='Correo actualizado'){ 
+						alert('Error inesperado, intente nuevamente. \nContacte al administrador de sistemas si el error persiste.');
+						console.log(response);
+					}else{
+						alert('El correo ha sido actualizado.\nSe enviará el código a tu correo nuevamente.');
+						location.reload(true);
+						console.log(response);
+					}
+				}
+			});
+		} else {
+			alert("La dirección de email es incorrecta.");
+		}
+
+		
 	};
 </script>
 </body>
