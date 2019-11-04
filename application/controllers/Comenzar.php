@@ -164,8 +164,7 @@ class Comenzar extends CI_Controller {
 	
 //se supone que ya está este método, revísalo a como tiene que funcionar, porfa¿?
 
-	//ya ve a dormir Ara, mañana llegamos temprano y le damos (10:00 am), okk, creo que está metiendo valores en el segmento 3, puros 0Sí, pero no sé por qué, mañana lo reviso temprano para que descanses ya, weno, va, mañana a la 10 le seguim os
-	//así es, descansa Ara   Iguak tu, bai
+	
 	public function respS4(){
 		$this->load->model('preguntas_model');
 		$ides = $this->preguntas_model->verSerieb4();

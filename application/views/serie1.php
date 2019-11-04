@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div></div>
-<form id="questionform" method="post" name="questionform" action="<?php echo base_url()?>index.php/Comenzar/respS1">
+<form id="questionform" method="post" name="questionform" action="<?php echo base_url()?>index.php/Serie1/respS1">
  <div class="container"> 
   <h3>Serie I. Mide información o conocimientos.</h3>
   <label class="control-label">
