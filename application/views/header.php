@@ -21,7 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-
     <li class="breadcrumb-item"><a id='enlace' onclick="myFunction();" href="#">Cerrar Sesión</a></li>
 
     <li class="breadcrumb-item active" aria-current="page"><?php echo $this->session->userdata('s_nombre');?></li>
@@ -35,7 +34,7 @@ function myFunction() {
 
   var r = confirm("¿Estás seguro de que quieres salir de la prueba?, tu avance se perderá. ");
   if (r == true) {
-    document.getElementById('enlace').setAttribute('href',"<?php echo base_url()?>Administrador/cerrar_sesion/");
+    document.getElementById('enlace').setAttribute('href',"<?php echo base_url()?>/Administrador/cerrar_sesion/");
 
   } else {
     

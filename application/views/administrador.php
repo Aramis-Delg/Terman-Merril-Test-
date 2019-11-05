@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <th>Curriculum</th>
           <th>Contacto</th>
           <th>Detalles  </th>
-          <th>Estado</th>
+          
           <th colspan="2">Estatus</th>
           <!--<li style='display: none;' id='correo'></li>-->
         </tr>
@@ -91,9 +91,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>Descargar \n <i class='material-icons file_download'>&#xe2c4;</a></td>";
             echo "<td class='telefono'>".$row2->telefono."</td>";
             echo "<td><button type='button' onclick=(CargarResultados()); class='btn btn-info selector'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
-            echo "<td>".$row2->estatus."</td>";
-            echo "<td><a class='edit' style='text-decoration:none; pointer-events: none;' title='Aceptar' data-toggle='tooltip'>Aceptar<i class='material-icons'>&#xE876;</i></a></td>";
-            echo "<td> <a class='delete' style='text-decoration:none; pointer-events: none;' title='Rechazar' data-toggle='tooltip'>Rechazar<i class='material-icons'>&#xE14C;</i></a></td>";
+            //echo "<td>".$row2->estatus."</td>";
+            echo "<td><a class='edit' style='text-decoration:none; pointer-events: none;' title='Aceptar' data-toggle='tooltip'>Aceptado</a></td>";
+            echo "<td> <a class='delete' style='text-decoration:none; pointer-events: none;' title='Rechazar' data-toggle='tooltip'>Rechazado</a></td>";
             echo "</tr>";
             echo "";
           } else{
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>Descargar \n <i class='material-icons file_download'>&#xe2c4;</a></td>";
             echo "<td>".$row2->telefono."</td>";
             echo "<td><button type='button' class='btn btn-info selector'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
-            echo "<td>".$row2->estatus."</td>";
+            //echo "<td>".$row2->estatus."</td>";
             echo "<td>
             <a class='edit' onclick='myFunction()' href='".base_url()."Administrador/CorreoAceptado/".$row2->id."' title='Aceptar' data-toggle='tooltip'>Aceptar  <i class='material-icons'>&#xE876;</i></a></td>";
             echo "<td> <a onclick='myFunction2()' href='".base_url()."Administrador/CorreoRechazado/".$row2->id."' class='delete' title='Rechazar' data-toggle='tooltip'>Rechazar<i class='material-icons'>&#xE14C;</i></a></td>";
