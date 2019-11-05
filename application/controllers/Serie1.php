@@ -17,14 +17,7 @@ class Serie1 extends CI_Controller {
 		if($this->session->userdata('s_tipo')=='usuario'){
 			if($this->session->userdata('s_validado')=='1'){
 				if ($this->session->userdata('s_test')=='0') {
-<<<<<<< HEAD
-					$this->load->model('serie1_model');
-					$this->load->model('login_model');
-					$data['verSerie1'] = $this->serie1_model->verSerie1();
-					$data['testEstado'] = $this->login_model->testEstado($this->session->userdata('s_id'));
-					$data['verRespuestas'] = $this->serie1_model->verRespuestas1();
-					$this->load->view('serie1',$data);
-=======
+
 
 					$this->load->model('preguntas_model');
 					$this->load->model('login_model');
@@ -32,7 +25,7 @@ class Serie1 extends CI_Controller {
 					$data['testEstado'] = $this->login_model->testEstado($this->session->userdata('s_id'));
 					$data['verRespuestas'] = $this->preguntas_model->verRespuestas1();
 					$this->load->view('serie1',$data);	
->>>>>>> f0dd408110098b98727ad545af4f627925d0dd75
+
 				}else{
 					$this->load->view('terminar');
 				}
@@ -51,18 +44,7 @@ class Serie1 extends CI_Controller {
 	}
 
 
-<<<<<<< HEAD
-=======
-	public function serie1($id){
-		$this->load->model('serie1_model');
-		$this->load->model('login_model');
-		$data['verSerie1'] = $this->serie1_model->verSerie1();
-		$data['testEstado'] = $this->login_model->testEstado($id);
-		$data['verRespuestas'] = $this->serie1_model->verRespuestas1();
-		$this->load->view('serie1',$data);
-	}
 
->>>>>>> f0dd408110098b98727ad545af4f627925d0dd75
 	public function respS1(){
 		$ides = $this->serie1_model->verSerieb1();
 		$puntos=0;
