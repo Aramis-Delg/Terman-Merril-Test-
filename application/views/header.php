@@ -21,7 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
+<<<<<<< HEAD
     <li class="breadcrumb-item"><a id='enlace' onclick="myFunction();" href="#">Cerrar Sesión</a></li>
+=======
+    <li class="breadcrumb-item"><a href="<?php echo base_url()?>Administrador/cerrar_sesion">Cerrar Sesión</a></li>
+>>>>>>> 43280dbc1dffbdb392c5cc5143daa2a59412d2c4
     <li class="breadcrumb-item active" aria-current="page"><?php echo $this->session->userdata('s_nombre');?></li>
   </ol>
 </nav>
