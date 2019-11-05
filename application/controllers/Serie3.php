@@ -10,7 +10,7 @@ class Serie3 extends CI_Controller {
 	public function index(){
 		$this->load->view('header');
 		if ($this->session->userdata('s_test')>=4) {
-			redirect('Serie4');
+			redirect('Comenzar');
 		}
 		if ($this->session->userdata('s_test')<=2) {
 			redirect('Serie2');

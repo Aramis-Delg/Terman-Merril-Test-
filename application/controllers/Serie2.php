@@ -11,7 +11,7 @@ class Serie2 extends CI_Controller {
 
 	$this->load->view('header');
 	if ($this->session->userdata('s_test')>=3) {
-			redirect('Serie3');
+			redirect('Comenzar');
 		}
 		if ($this->session->userdata('s_test')<=1) {
 			redirect('Serie1');

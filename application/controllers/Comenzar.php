@@ -17,10 +17,10 @@ class Comenzar extends CI_Controller {
 					
 				}else{
 					if ($this->session->userdata('s_test')>=1) {
-						redirect ('Serie1')	;
-					} else{
 						$this->load->view('terminar');	
+						
 					}
+					
 					
 				}
 			}else{
