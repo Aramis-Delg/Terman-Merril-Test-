@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="form-group"> <!-- Submit button !-->
         <form action="">
  
-        <button class="btn btn-primary "  type="submit">Terminar</button>
+        <button class="btn btn-primary " onclick="cambiar()"  type="submit">Terminar</button>
 
     </form>
     </div>
@@ -111,12 +111,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       });
 
       function temporizador() {
+        cambio=1;
         setTimeout(function() {
           alert('El tiempo ha terminado.');
         $("#questionform").submit();
       }, 240000);
        
     }
+    
+  var bPreguntar = true;
+  window.onbeforeunload = preguntarAntesDeSalir;
+
+  function preguntarAntesDeSalir()
+
+  {
+
+    if (bPreguntar)
+      return "¿Seguro que quieres salir?";
+  }
+
+  window.onbeforeunload = confirmExit;
+
+  function confirmExit() {
+    if (cambio == 1) {
+      return "¿Seguro que desea salir de esta página?, sus cambios se perderán si no ha dado cick en el botón de GUARDAR. ";
+    }
+  }
+  function cambiar(){
+    cambio=0;
+  }
 
 
 </script>
