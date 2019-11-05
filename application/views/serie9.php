@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            {
             $aux=$row->id;
   echo "<ul>";
-  echo "<li>"."<b>".$i.". ".$row->pregunta."</b>";
+  echo "<li>"."<b>".$row->pregunta."</b>";
   echo "<br>";
 
 foreach ($verRespuestas as $row2) {

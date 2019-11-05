@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <link href="<?php echo base_url('assets/css/bootstrap.min.css')?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/fuentes.css')?>" rel="stylesheet">
     <script src="<?php echo base_url('assets/js/bootstrap.js')?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
@@ -35,9 +36,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
+
     <div class="login-form" width= 340px >
+
         <form action="<?php echo base_url()?>index.php/Login/ingresar" method="post">
-            <h2 class="text-center">Log in</h2>       
+            <div class="text-center">
+            <span class="titulo">Innmortal</span>
+            <br>
+            <span class="subtitulo">DESARROLLO TECNOLÓGICO</span>
+            </div>
+            <br>
+            <hr>
+            <br>
+        
+            <h4 class="text-center">Log in</h4>       
             <div class="form-group">
                 <input type="text" name="usuario" class="form-control" placeholder="Nombre de usuario" required="required">
             </div>
