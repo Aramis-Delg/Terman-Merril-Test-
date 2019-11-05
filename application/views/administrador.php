@@ -18,12 +18,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     table, table td {
       text-align: center;
       margin: auto;
-      width: 50% !important;    
+      width: 60% !important;    
     }
 
     .modal-lg{
-    max-width: 130% !important;
+    max-width: 5000px !important;
   }
+
+  .modal-body{
+    max-width: 5000px !important;
+  }
+
   </style>
   <script type="text/javascript">
     $('body').removeClass('modal-open');
@@ -158,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th class="serie9" id="serie9" name="serie9" scope="row"></th>
                 <th class="serie10" id="serie10" name="serie10" scope="row"></th>
                 <th class="total" id="total" name="total" scope="row"></th>
-                <td></td>
+                
 
               </tr>
             </tbody>
