@@ -11,15 +11,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
     table, table td {
       text-align: center;
       margin: auto;
-      width: 50% !important;    
+      width: 60% !important;    
     }
+
+    .modal-lg{
+    max-width: 5000px !important;
+  }
+
+  .modal-body{
+    max-width: 5000px !important;
+  }
+
   </style>
   <script type="text/javascript">
     $('body').removeClass('modal-open');
@@ -112,22 +121,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 </div>    
 
-<div class="container">
 
-  <div id="miModal" class="modal " role="dialog" width= 70>
-    <div class="modal-dialog">
+  <div id="miModal" class="modal" role="dialog" width= 70>
+    <div class="modal-dialog  modal-lg">
       <!-- Contenido del modal -->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" onclick="limpiar()" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-         <h5 class="modal-title" id="exampleModalLongTitle">Detalles.</h5>
+         <h3 class="modal-title" id="exampleModalLongTitle">Detalles.</h3>
          <br>
          <br>
-         <form action="">
+        <div class=".form-horizontal">
           <table class="table table-striped">
-            <thead>
+            <thead >
               <tr>
                 <th scope="col">Serie I</th>
                 <th scope="col">Serie II</th>
@@ -155,18 +163,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th class="serie9" id="serie9" name="serie9" scope="row"></th>
                 <th class="serie10" id="serie10" name="serie10" scope="row"></th>
                 <th class="total" id="total" name="total" scope="row"></th>
-                <td></td>
+                
 
               </tr>
             </tbody>
           </table>
-          
+        </div>
 
-
-        </form>
       </div>
-
-    </div>
 
   </div>
   <div class="modal-footer">
@@ -214,60 +218,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               var ser9 = response[8].nombre;
               var ser10 = response[9].nombre;
               var ser11 = response[9].CI;
+              
               if(!ser1){
-                $('#serie1').text(ser1);
-              }else{
                 $('#serie1').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie1').text(ser1);
               }
               if(!ser2){
-                $('#serie2').text(ser2);
-              }else{
                 $('#serie2').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie2').text(ser2);
               }
               if(!ser3){
-                $('#serie3').text(ser3);
-              }else{
                 $('#serie3').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie3').text(ser3);
               }
               if(!ser4){
-                $('#serie4').text(ser4);
-              }else{
                 $('#serie4').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie4').text(ser4);
               }
               if(!ser5){
-                $('#serie5').text(ser5);
-              }else{
                 $('#serie5').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie5').text(ser5);
               }
               if(!ser6){
-                $('#serie6').text(ser6);
-              }else{
                 $('#serie6').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie6').text(ser6);
               }
               if(!ser7){
-                $('#serie7').text(ser7);
-              }else{
                 $('#serie7').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie7').text(ser7);
               }
               if(!ser8){
-                $('#serie8').text(ser8);
-              }else{
                 $('#serie8').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie8').text(ser8);
               }
               if(!ser9){
-                $('#serie9').text(ser9);
-              }else{
                 $('#serie9').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie9').text(ser9);
               }
               if(!ser10){
-                $('#serie10').text(ser10);
-              }else{
                 $('#serie10').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#serie10').text(ser10);
               }
               if(!ser11){
-                $('#total').text(ser11);
-              }else{
                 $('#total').text('No finalizó o interrumpió la prueba.');  
+              }else{
+                $('#total').text(ser11);
               }
 
             }

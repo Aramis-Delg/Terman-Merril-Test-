@@ -11,12 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-    ul{
-        list-style: none;
-</style>
-
-
 </head>
 
 <body>
@@ -78,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            {
             $aux=$row->id;
   echo "<ul>";
-  echo "<li>"."<h4>".$i.". ".$row->pregunta."</h4>";
+  echo "<li>"." - <h4>".$i.". ".$row->pregunta."</h4>";
   
         echo " <tr><th>";
         echo "<label><h5><div class='col-xs-2' align='right'><input type='text' autocomplete='off' id='".$row->id."' name='respuesta".$row->id."' ></div></h5></label>";

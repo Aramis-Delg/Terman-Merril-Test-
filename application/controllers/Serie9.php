@@ -7,7 +7,8 @@ class Serie9 extends CI_Controller {
 		parent::__construct();
 		$this->load->model('serie9_model');
 	}
-	public function index(){	
+	public function index(){
+	$this->load->view('header');	
 	if ($this->session->userdata('s_test')>=10) {
 			redirect('Serie10');
 		}

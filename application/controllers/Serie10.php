@@ -7,7 +7,8 @@ class Serie10 extends CI_Controller {
 		parent::__construct();
 		$this->load->model('serie10_model');
 	}
-	public function index(){		
+	public function index(){	
+	$this->load->view('header');	
 		if ($this->session->userdata('s_test')>=10) {
 			$data['verSerie10'] = $this->serie10_model->verSerie10();
 			$data['verRespuestas'] = $this->serie10_model->verRespuestas10();

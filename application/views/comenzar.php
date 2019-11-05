@@ -27,21 +27,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <div class="card text-center">
       <div class="card-header">
-        Bienvenido <?php echo $this->session->userdata('s_nombre');?> 
+      <font size="4">  Bienvenido <?php echo $this->session->userdata('s_nombre');?></font> 
     </div>
     <div class="card-body">
-        <h5 class="card-title"><i>“Convierte tu pasión en un proyecto de vida”</i></h5>
+        <h5 class="card-title"><i><font size="6">“Convierte tu pasión en un proyecto de vida”</font></i></h5>
         <p class="card-text">
             <br>
-            <h6>RECOMENDACIONES</h6>
+            <font size="3">
+            <h4>RECOMENDACIONES</h4>
             <li> Asegurate de tener buena conexión a internet.</li>
             <li> Mantente lejos de las distracciones y ponte cómodo.</li>
             <li> El tiempo estimado de esta evaluación es de 40 a 45 minutos.</li>
             <br>
-            <h6>¡ADVERTENCIA!</h6>
+            <h4>¡ADVERTENCIA!</h4>
             Una vez comenzada la prueba no podrás comenzar de nuevo.
         </p>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-backdrop="false" data-dismiss="modal"data-target="#miModal">Empezar Test</button>
+      </font>
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-backdrop="false" data-dismiss="modal"data-target="#miModal"><h3>Empezar Test</h3></button>
         
   </div>
   <div class="card-footer text-muted">
@@ -62,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          <br>
          <br>
          <form action="">
-           <button type="submit" formaction="<?php echo base_url()?>Serie1/" class="btn btn-primary">Continuar</button>
+           <button type="submit" formaction="<?php echo base_url()?>Comenzar/comenzar" class="btn btn-primary">Continuar</button>
 
         <button   type="submit" formaction="<?php echo base_url()?>Login/cerrar_sesion" class="btn btn-secondary" >Cerrar sesión</button>
         </form>
