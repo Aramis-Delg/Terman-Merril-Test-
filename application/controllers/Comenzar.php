@@ -29,6 +29,7 @@ class Comenzar extends CI_Controller {
 		
 	}
 
+
 	public function terminar(){
 		
 		$this->load->view('terminar');

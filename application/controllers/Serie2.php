@@ -7,10 +7,18 @@ class Serie2 extends CI_Controller {
 		parent::__construct();
 		$this->load->model('serie2_model');
 	}
-	public function index(){		
+	public function index(){
+
+	if ($this->session->userdata('s_test')>=3) {
+			redirect('Serie3');
+		}
+		if ($this->session->userdata('s_test')<=1) {
+			redirect('Serie1');
+		}		
 	$this->load->model('serie2_model');
 		$data['verSerie2'] = $this->serie2_model->verSerie2();
 		$data['verRespuestas'] = $this->serie2_model->verRespuestas2();
+
 		$this->load->view('serie2',$data);
 	}
 	public function respS2(){
@@ -46,6 +54,7 @@ class Serie2 extends CI_Controller {
 
 		//var_dump($data);
 		$this->serie2_model->insertTotal2($puntos,$id_usuario,$data[0]->id_rango);
+		$this->session->set_userdata('s_test',3);
 		redirect('Serie3');
 		
 	}

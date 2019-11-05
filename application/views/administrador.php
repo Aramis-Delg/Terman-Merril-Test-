@@ -214,17 +214,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               var ser9 = response[8].nombre;
               var ser10 = response[9].nombre;
               var ser11 = response[9].CI;
-              $('#serie1').text(ser1);
-              $('#serie2').text(ser2);
-              $('#serie3').text(ser3);
-              $('#serie4').text(ser4);
-              $('#serie5').text(ser5);
-              $('#serie6').text(ser6);
-              $('#serie7').text(ser7);
-              $('#serie8').text(ser8);
-              $('#serie9').text(ser9);
-              $('#serie10').text(ser10);
-              $('#total').text(ser11);
+              if(!ser1){
+                $('#serie1').text(ser1);
+              }else{
+                $('#serie1').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser2){
+                $('#serie2').text(ser2);
+              }else{
+                $('#serie2').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser3){
+                $('#serie3').text(ser3);
+              }else{
+                $('#serie3').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser4){
+                $('#serie4').text(ser4);
+              }else{
+                $('#serie4').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser5){
+                $('#serie5').text(ser5);
+              }else{
+                $('#serie5').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser6){
+                $('#serie6').text(ser6);
+              }else{
+                $('#serie6').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser7){
+                $('#serie7').text(ser7);
+              }else{
+                $('#serie7').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser8){
+                $('#serie8').text(ser8);
+              }else{
+                $('#serie8').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser9){
+                $('#serie9').text(ser9);
+              }else{
+                $('#serie9').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser10){
+                $('#serie10').text(ser10);
+              }else{
+                $('#serie10').text('No finalizó o interrumpió la prueba.');  
+              }
+              if(!ser11){
+                $('#total').text(ser11);
+              }else{
+                $('#total').text('No finalizó o interrumpió la prueba.');  
+              }
+
             }
           }
         });
