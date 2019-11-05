@@ -91,9 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             echo "<td><a download target='_blank' href='".$url."uploads/CV".$row2->curp.".pdf'>Descargar \n <i class='material-icons file_download'>&#xe2c4;</a></td>";
             echo "<td class='telefono'>".$row2->telefono."</td>";
             echo "<td><button type='button' onclick=(CargarResultados()); class='btn btn-info selector'  data-toggle='modal' data-backdrop='false' data-dismiss='modal'data-target='#miModal'>Ver detalle</button></td>";
-            //echo "<td>".$row2->estatus."</td>";
-            echo "<td><a class='edit' style='text-decoration:none; pointer-events: none;' title='Aceptar' data-toggle='tooltip'>Aceptado</a></td>";
-            echo "<td> <a class='delete' style='text-decoration:none; pointer-events: none;' title='Rechazar' data-toggle='tooltip'>Rechazado</a></td>";
+            echo "<td colspan='2'><a style='text-decoration:none; pointer-events: none;' title='Aceptar' data-toggle='tooltip'>".$row2->estatus."</a></td>";
             echo "</tr>";
             echo "";
           } else{

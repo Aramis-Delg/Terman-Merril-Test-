@@ -1,4 +1,4 @@
-<?php
+ onclick="cambiar()"<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
@@ -78,7 +78,7 @@ foreach ($verRespuestas as $row2) {
      
     
     <div class="form-group" > <!-- Submit button !-->
-        <button class="btn btn-primary "  type="submit">Enviar</button>
+        <button class="btn btn-primary "  onclick="cambiar()" type="submit">Enviar</button>
     </div>
     </form>
     </div>
@@ -93,12 +93,35 @@ foreach ($verRespuestas as $row2) {
       });
 
          function temporizador() {
+          cambio=1;
         setTimeout(function() {
           alert('Tu tiempo se ha terminado. Comienza serie 7.');
         $("#questionform").submit();
       }, 120000);
        
     }
+    
+  var bPreguntar = true;
+  window.onbeforeunload = preguntarAntesDeSalir;
+
+  function preguntarAntesDeSalir()
+
+  {
+
+    if (bPreguntar)
+      return "¿Seguro que quieres salir?";
+  }
+
+  window.onbeforeunload = confirmExit;
+
+  function confirmExit() {
+    if (cambio == 1) {
+      return "¿Seguro que desea salir de esta página?, sus cambios se perderán si no ha dado cick en el botón de GUARDAR. ";
+    }
+  }
+  function cambiar(){
+    cambio=0;
+  }
 
 
 </script>
