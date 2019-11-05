@@ -73,28 +73,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </label>
 
   <div class="form-group" > <!-- Submit button !-->
-    <button class="btn btn-primary"  type="submit">Enviar</button>
+    <button class="btn btn-primary" onclick="cambiar()" type="submit">Enviar</button>
   </div>
 
 </form>
 </div>
- <script type="text/javascript">
-    function temporizador() {
-        setTimeout(function() {
-          alert('Tu tiempo se ha terminado. Comienza serie 2.');
-        $("#questionform").submit();
-      }, 120000);
-       
+<script type="text/javascript">
+  function temporizador() {
+    cambio=1;
+    setTimeout(function() {
+      alert('Tu tiempo se ha terminado. Comienza serie 2.');
+      $("#questionform").submit();
+    }, 120000);
+
+  }
+  var bPreguntar = true;
+  window.onbeforeunload = preguntarAntesDeSalir;
+
+  function preguntarAntesDeSalir()
+
+  {
+
+    if (bPreguntar)
+      return "¿Seguro que quieres salir?";
+  }
+
+  window.onbeforeunload = confirmExit;
+
+  function confirmExit() {
+    if (cambio == 1) {
+      return "¿Seguro que desea salir de esta página?, sus cambios se perderán si no ha dado cick en el botón de GUARDAR. ";
     }
-    
-    $(document).ready(function()
-    {   
-     $("#mostrarmodal").modal("show");
+  }
+  function cambiar(){
+    cambio=0;
+  }
+  $(document).ready(function()
+  {   
+   $("#mostrarmodal").modal("show");
 
-   });
+ });
 
 
 
-  </script>
+</script>
 </body>
 </html>

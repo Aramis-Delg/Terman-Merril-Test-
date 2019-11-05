@@ -18,7 +18,7 @@ class Serie1 extends CI_Controller {
 		if($this->session->userdata('s_tipo')=='usuario'){
 			if($this->session->userdata('s_validado')=='1'){
 			if ($this->session->userdata('s_test')>=2) {
-						redirect('Serie2');
+						redirect('Comenzar');
 					}
 					if ($this->session->userdata('s_test')<=0) {
 						redirect('Comenzar');
