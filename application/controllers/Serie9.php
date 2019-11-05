@@ -7,7 +7,13 @@ class Serie9 extends CI_Controller {
 		parent::__construct();
 		$this->load->model('serie9_model');
 	}
-	public function index(){		
+	public function index(){	
+	if ($this->session->userdata('s_test')>=10) {
+			redirect('Serie10');
+		}
+		if ($this->session->userdata('s_test')<=8) {
+			redirect('Serie8');
+		}	
 	$data['verSerie9'] = $this->serie9_model->verSerie9();
 	$data['verRespuestas'] = $this->serie9_model->verRespuestas9();
 	$this->load->view('serie9',$data);
@@ -52,6 +58,7 @@ class Serie9 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie9_model->insertTotal9($puntos,$id_usuario,$data[0]->id_rango);
+		$this->session->set_userdata('s_test',10);
 		redirect('Serie10');
 			//var_dump($puntos);
 		

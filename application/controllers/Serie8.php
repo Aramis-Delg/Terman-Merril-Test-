@@ -8,6 +8,12 @@ class Serie8 extends CI_Controller {
 		$this->load->model('serie8_model');
 	}
 	public function index(){		
+		if ($this->session->userdata('s_test')>=9) {
+			redirect('Serie9');
+		}
+		if ($this->session->userdata('s_test')<=7) {
+			redirect('Serie7');
+		}
 	$data['verSerie8'] = $this->serie8_model->verSerie8();
 	$data['verRespuestas'] = $this->serie8_model->verRespuestas8();
 	$this->load->view('serie8',$data);
@@ -44,6 +50,7 @@ class Serie8 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie8_model->insertTotal8($puntos,$id_usuario,$data[0]->id_rango);
+		$this->session->set_userdata('s_test',9);
 		redirect('Serie9');
 			//var_dump($puntos);
 		

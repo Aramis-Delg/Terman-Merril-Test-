@@ -8,6 +8,12 @@ class Serie5 extends CI_Controller {
 		$this->load->model('serie5_model');
 	}
 	public function index(){	
+		if ($this->session->userdata('s_test')>=6) {
+			redirect('Serie6');
+		}
+		if ($this->session->userdata('s_test')<=4) {
+			redirect('Serie4');
+		}
 		$data['verSerie5'] = $this->serie5_model->verSerie5();
 		$data['verRespuestas'] = $this->serie5_model->verRespuestas5();
 		$this->load->view('serie5',$data);	
@@ -54,6 +60,7 @@ class Serie5 extends CI_Controller {
 		//var_dump($puntosTotal);
 		$this->serie5_model->insertTotal5($puntosTotal,$id_usuario,$data[0]->id_rango);
 		$data['verRespuestas'] = $this->serie5_model->verRespuestas5();
+		$this->session->set_userdata('s_test',6);
 			//var_dump($puntos);
 		redirect('Serie6');
 
