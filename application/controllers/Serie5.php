@@ -8,6 +8,7 @@ class Serie5 extends CI_Controller {
 		$this->load->model('serie5_model');
 	}
 	public function index(){	
+		$this->load->view('header');
 		if ($this->session->userdata('s_test')>=6) {
 			redirect('Serie6');
 		}

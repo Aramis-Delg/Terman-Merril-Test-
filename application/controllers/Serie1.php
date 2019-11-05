@@ -5,6 +5,7 @@ class Serie1 extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+
 		$this->load->model('serie1_model');
 		$this->load->model('login_model');
 	}
@@ -12,7 +13,7 @@ class Serie1 extends CI_Controller {
 
 	public function index(){
 
-		
+		$this->load->view('header');
 
 		if($this->session->userdata('s_tipo')=='usuario'){
 			if($this->session->userdata('s_validado')=='1'){
