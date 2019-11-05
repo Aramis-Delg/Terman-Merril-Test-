@@ -6,6 +6,7 @@ class Comenzar extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('preguntas_model');
+		$this->load->model('login_model');
 	}
 	public function index()
 	{		
@@ -13,8 +14,14 @@ class Comenzar extends CI_Controller {
 			if($this->session->userdata('s_validado')=='1'){
 				if ($this->session->userdata('s_test')=='0') {
 					$this->load->view('comenzar');	
+					
 				}else{
-					$this->load->view('terminar');
+					if ($this->session->userdata('s_test')>=1) {
+						redirect ('Serie1')	;
+					} else{
+						$this->load->view('terminar');	
+					}
+					
 				}
 			}else{
 				redirect('Verificar');
@@ -27,6 +34,12 @@ class Comenzar extends CI_Controller {
 			}
 		}
 		
+	}
+
+	public function comenzar(){
+		$this->session->set_userdata('s_test',1);
+		$data['testEstado'] = $this->login_model->testEstado($this->session->userdata('s_id'));
+		redirect ('Serie1');
 	}
 
 

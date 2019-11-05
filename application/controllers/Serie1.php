@@ -17,19 +17,21 @@ class Serie1 extends CI_Controller {
 
 		if($this->session->userdata('s_tipo')=='usuario'){
 			if($this->session->userdata('s_validado')=='1'){
-				if ($this->session->userdata('s_test')=='0') {
+			if ($this->session->userdata('s_test')>=2) {
+						redirect('Serie2');
+					}
+					if ($this->session->userdata('s_test')<=0) {
+						redirect('Comenzar');
+					}
 
 
 					$this->load->model('preguntas_model');
 					$this->load->model('login_model');
 					$data['verSerie1'] = $this->preguntas_model->verSerie1();
-					$data['testEstado'] = $this->login_model->testEstado($this->session->userdata('s_id'));
+					
 					$data['verRespuestas'] = $this->preguntas_model->verRespuestas1();
 					$this->load->view('serie1',$data);	
 
-				}else{
-					$this->load->view('terminar');
-				}
 			}else{
 				redirect('Verificar');
 			}
@@ -78,6 +80,7 @@ class Serie1 extends CI_Controller {
 
 		//insert en total_segmento
 		$this->serie1_model->insertTotal1($puntos,$id_usuario,$data[0]->id_rango);
+		$this->session->set_userdata('s_test',2);
 		redirect('Serie2');
 		
 	}
