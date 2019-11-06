@@ -55,21 +55,23 @@ class Serie1 extends CI_Controller {
 		$id_usuario =$this->session->userdata('s_id');
 		//var_dump($id_usuario);
 		for ($i=0; $i < sizeof($ides) ; $i++) { 
-			$temp=$this->input->post('respuesta'.$ides[$i]->id);
 
-			//var_dump($temp);
+			$temp=$this->input->post('respuesta'.$ides[$i]->id);
+			//var_dump($temp[0]);
+			
 			//echo "<br><br>";
 			
 			$pregunta=$ides[$i]->id;
 			if(!$temp){
-				$temp='0';
+				$temp=0;
 				//insert
 				$this->serie1_model->insertSerieb1Total($temp,$id_usuario,$pregunta);
 			}else {
 				//insert
 
 				$this->serie1_model->insertSerieb1Total($temp[0],$id_usuario,$pregunta);
-				$puntos=$puntos+intval($temp);
+
+				$puntos=$puntos+intval($temp[0]);
 				
 			}
 

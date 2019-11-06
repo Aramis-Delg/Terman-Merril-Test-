@@ -205,18 +205,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               alert('No existen resultados para mostrar de esta persona.');
               console.log(response);
             }else{
-              var ser1 = response[0].nombre;
+              if (response[0]) {
+                var ser1 = response[0].nombre;
+              }else{
+                ser1 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[1]) {
               var ser2 = response[1].nombre;
+              }else{
+                ser2 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[2]) {
               var ser3 = response[2].nombre;
+              }else{
+                ser3 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[3]) {
               var ser4 = response[3].nombre;
+              }else{
+                ser4 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[4]) {
               var ser5 = response[4].nombre;
+              }else{
+                ser5 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[5]) {
               var ser6 = response[5].nombre;
+              }else{
+                ser6 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[6]) {
               var ser7 = response[6].nombre;
+              }else{
+                ser7 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[7]) {
               var ser8 = response[7].nombre;
+              }else{
+                ser8 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[8]) {
               var ser9 = response[8].nombre;
+              }else{
+                ser9 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[9]) {
               var ser10 = response[9].nombre;
-              var ser11 = response[9].CI;
-              
+              }else{
+                ser10 = 'No finalizó o interrumpió la prueba.';
+              }
+              if (response[9]) {
+              var ser11 = response[9].nombre;
+              }else{
+                ser11 = 'No finalizó o interrumpió la prueba.';
+              }
               if(!ser1){
                 $('#serie1').text('No finalizó o interrumpió la prueba.');  
               }else{
@@ -277,11 +320,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
         });
        });
-
-  /*function CargarResultados(){
-    //var codigo = $('#codigo').val();
-   
-  };*/
 </script>
 </body>
 </html>                            

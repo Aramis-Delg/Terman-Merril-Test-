@@ -30,8 +30,8 @@ class Serie2 extends CI_Controller {
 		for ($i=0; $i < sizeof($ides) ; $i++) { 
 			$temp=$this->input->post('respuesta'.$ides[$i]->id);
 
-			//var_dump($temp);
-			//echo "<br><br>";
+			var_dump($temp);
+			echo "<br><br>";
 			if($temp=''){
 				$temp='0';
 			}

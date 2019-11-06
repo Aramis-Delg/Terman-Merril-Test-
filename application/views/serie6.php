@@ -1,4 +1,4 @@
- onclick="cambiar()"<?php
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
@@ -78,7 +78,7 @@ foreach ($verRespuestas as $row2) {
      
     
     <div class="form-group" > <!-- Submit button !-->
-        <button class="btn btn-primary "  onclick="cambiar()" type="submit">Enviar</button>
+        <button class="btn btn-primary " onclick="cambiar()" type="submit">Enviar</button>
     </div>
     </form>
     </div>
